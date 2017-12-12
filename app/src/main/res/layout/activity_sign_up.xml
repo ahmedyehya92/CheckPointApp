@@ -2,27 +2,59 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/blue_gray_500"
+    android:background="@drawable/bg_main"
+
     >
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:paddingStart="30dp"
-        android:paddingLeft="30dp"
-        android:paddingEnd="30dp"
-        android:paddingRight="30dp"
+        android:layout_gravity="center_vertical"
+        android:paddingStart="80dp"
+        android:paddingLeft="80dp"
+        android:paddingRight="80dp"
+        android:paddingEnd="80dp"
         >
-        <EditText
+        <ImageView
+            android:id="@+id/logo_signup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/logo_signup"
+            />
+        <Button
+        android:id="@+id/btn_signup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/logo_signup"
+        android:layout_margin="8dp"
+        android:background="@drawable/shape_edite_text"
+        android:text="@string/btn_signup"
+        android:textColor="@color/white"
+        />
+        <Button
+            android:id="@+id/btn_login"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/btn_signup"
+            android:layout_margin="8dp"
             android:background="@drawable/shape_edite_text"
-            android:drawableStart="@drawable/ic_launcher_foreground"
-            android:drawableLeft="@drawable/ic_launcher_foreground"
-            android:layout_margin="15dp"
-            android:paddingEnd="16dp"
-            android:paddingRight="16dp"
-            android:singleLine="true"
+            android:text="@string/btn_login"
+            android:textColor="@color/white"
+            />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/btn_login"
+            android:layout_margin="8dp"
+            android:text="@string/btn_login_later"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            android:background="@null"
+
             />
     </RelativeLayout>
 
