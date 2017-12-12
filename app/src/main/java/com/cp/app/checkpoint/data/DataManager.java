@@ -6,4 +6,13 @@ package com.cp.app.checkpoint.data;
 
 public class DataManager {
 
+    public void uploadUserData(String name, String mobileNo, String gender, String dateOfBirth, String address, String password) {
+
+    }
+    public void saveUserData ()
+    {
+
+    }
+
+
 }
