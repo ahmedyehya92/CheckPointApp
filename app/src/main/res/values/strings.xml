@@ -3,4 +3,16 @@
     <string name="btn_signup">Sign Up</string>
     <string name="btn_login">Login</string>
     <string name="btn_login_later">LOG IN LATER</string>
+    <string name="title_signup_popup">Sign up for CheckPoint</string>
+    <string name="hint_name_et_sign_up_popup">Name</string>
+    <string name="hint_mob_et_sign_up_popup">Mobile No</string>
+    <string name="hint_birth_date_et_sign_up_popup">Date of Birth</string>
+    <string name="hint_address_et_sign_up_popup">Address</string>
+    <string name="hint_password_et_sign_up_popup">Password</string>
+
+    <string-array name="gender_array">
+        <item>Select Gender</item>
+        <item>Male</item>
+        <item>Female</item>
+    </string-array>
 </resources>
