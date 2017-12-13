@@ -7,5 +7,6 @@
     <color name="blue_gray_500">#607D8B</color>
     <color name="brown_500_op_25">#40795548</color>
     <color name="black_op_90">#E6000000</color>
+    <color name="btn_confirm">#f6bd93</color>
 
 </resources>

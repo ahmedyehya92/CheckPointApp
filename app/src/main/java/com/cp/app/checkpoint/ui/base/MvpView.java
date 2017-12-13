@@ -5,4 +5,5 @@ package com.cp.app.checkpoint.ui.base;
  */
 
 public interface MvpView {
+
 }
