@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:background="@drawable/full_background_3"
+tools:context="com.cp.app.checkpoint.ui.subcategoriy.SubCategoryActivity"
+    >
+
+
+<ImageView
+    android:id="@+id/logo"
+    android:layout_width="125dp"
+    android:layout_height="125dp"
+    android:layout_centerHorizontal="true"
+    android:src="@drawable/logo_with_white_border"
+    android:layout_marginTop="42dp"
+    android:scaleType="centerCrop"
+    android:layout_alignParentTop="true"
+    />
+
+<TextView
+    android:id="@+id/logo_menu"
+    android:layout_width="150dp"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/logo"
+    android:layout_centerHorizontal="true"
+    android:text="@string/btn_hot_drinks"
+    android:gravity="center"
+    android:textSize="32dp"
+    android:textColor="@color/white"
+    android:textStyle=""
+    />
+
+<RelativeLayout
+    android:layout_below="@id/logo_menu"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingStart="40dp"
+    android:paddingLeft="40dp"
+    android:paddingEnd="40dp"
+    android:paddingRight="40dp"
+    android:layout_centerVertical="true"
+    android:layout_above="@id/your_list_layout"
+    >
+<ExpandableListView
+    android:id="@+id/list_item_sub_category"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:divider="@null"
+
+    >
+
+</ExpandableListView>
+
+</RelativeLayout>
+
+<LinearLayout
+    android:id="@+id/your_list_layout"
+    android:layout_alignParentBottom="true"
+    android:layout_centerHorizontal="true"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    >
+
+    <Button
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:layout_weight="0.30"
+        android:layout_gravity="bottom"
+        android:background="@drawable/shape_counter_list"
+        android:text="@string/zero_counter_your_list"
+        android:textColor="@color/white"
+        style="?android:attr/buttonBarButtonStyle"
+        />
+
+    <Button
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="50dp"
+        android:background="@drawable/shape_btn_your_list"
+        android:text="@string/btn_your_list"
+        android:textColor="@color/white"
+        style="?android:attr/buttonBarButtonStyle"
+
+        />
+
+</LinearLayout>
+
+</RelativeLayout>

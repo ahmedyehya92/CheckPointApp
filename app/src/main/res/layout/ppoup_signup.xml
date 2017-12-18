@@ -1,10 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:fitsSystemWindows="true"
+    >
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/shape_signup_popup"
+        >
+    </View>
+    <View
+        android:layout_width="200dp"
+        android:layout_height="229.4dp"
+        android:layout_centerInParent="true"
+        android:background="@drawable/logo"
+        android:alpha="0.1"
+        />
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
-    android:background="@drawable/shape_signup_popup"
     >
+
     <Button
         android:id="@+id/btn_close_signup_pop"
         android:layout_width="25dp"
@@ -13,6 +35,7 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         />
+
     <TextView
         android:id="@+id/tx_signup_popup_title"
         android:layout_width="wrap_content"
@@ -33,7 +56,6 @@
         android:drawableLeft="@drawable/ic_name_ed_text"
         android:hint="@string/hint_name_et_sign_up_popup"
         android:textColor="@color/white"
-        android:textSize="12sp"
         android:textColorHint="@color/white"
         android:paddingStart="8dp"
         android:paddingLeft="8dp"
@@ -55,7 +77,7 @@
         android:drawableLeft="@drawable/ic_mobile_num_et"
         android:hint="@string/hint_mob_et_sign_up_popup"
         android:textColor="@color/white"
-        android:textSize="12sp"
+
         android:textColorHint="@color/white"
         android:paddingStart="8dp"
         android:paddingLeft="8dp"
@@ -74,6 +96,8 @@
         android:layout_marginBottom="24dp"
         android:background="@drawable/shape_spinner"
         android:entries="@array/gender_array"
+        android:spinnerMode="dialog"
+        android:popupBackground="@color/black_op_90"
         />
     <TextView
         android:id="@+id/tx_birthday"
@@ -93,7 +117,7 @@
         android:drawableLeft="@drawable/ic_date_of_birth"
         android:background="@drawable/shape_edite_text"
         android:textColor="@color/white"
-        android:textSize="12sp"
+
         android:text="@string/hint_birth_date_et_sign_up_popup"
         android:gravity="center_vertical"
         />
@@ -113,7 +137,7 @@
         android:drawableLeft="@drawable/ic_address"
         android:hint="@string/hint_address_et_sign_up_popup"
         android:textColor="@color/white"
-        android:textSize="12sp"
+
         android:textColorHint="@color/white"
         android:paddingStart="8dp"
         android:paddingLeft="8dp"
@@ -136,7 +160,6 @@
         android:drawableLeft="@drawable/ic_password_et"
         android:hint="@string/hint_password_et_sign_up_popup"
         android:textColor="@color/white"
-        android:textSize="12sp"
         android:textColorHint="@color/white"
         android:paddingStart="8dp"
         android:paddingLeft="8dp"
@@ -146,8 +169,8 @@
         />
     <Button
         android:id="@+id/btn_confirm_sign_up_popup"
-        android:layout_width="100dp"
-        android:layout_height="30dp"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
         android:layout_marginStart="24dp"
         android:layout_marginLeft="24dp"
         android:layout_marginEnd="24dp"
@@ -157,12 +180,13 @@
         android:layout_below="@id/et_password_sign_up_popup"
         android:background="@drawable/shape_btn_confirm"
         android:text="@string/btn_confirm_sign_up_popup"
-        android:textColor="@color/btn_confirm"
+        android:textColor="@color/black_op_90"
         />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
+        android:layout_below="@id/btn_confirm_sign_up_popup"
         android:orientation="vertical"
         android:gravity="center_horizontal"
         >
@@ -173,6 +197,7 @@
             android:textColor="@color/white"
             />
         <Button
+            android:id="@+id/btn_facebook_reg"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:drawableStart="@drawable/ic_facebook_vec"
@@ -183,3 +208,5 @@
             />
     </LinearLayout>
 </RelativeLayout>
+</RelativeLayout>
+</ScrollView>
