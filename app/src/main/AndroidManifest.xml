@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.cp.app.checkpoint">
 
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+
     <application
         android:name=".MvpApp"
         android:allowBackup="true"
@@ -10,7 +13,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.main.MainActivity"></activity>
+        <activity android:name=".ui.main.MainActivity" />
         <activity android:name=".ui.registration.RegistrationActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -18,8 +21,21 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.subcategoriy.SubCategoryActivity"
-            android:exported="true"></activity>
+        <activity android:name=".ui.subcategoriy.SubCategoryActivity" />
+        <activity android:name=".ui.listtoorder.ListToOrderActivity" />
+
+        <provider
+            android:name=".data.dphelper.ItemProvider"
+            android:authorities="com.cp.checkpoint.desiredlistorderdp"
+            android:exported="false" />
+
+        <receiver android:name=".services.OnAlarmReceiver" />
+
+        <service android:name=".services.AlarmService" />
+
+        <activity android:name=".ui.languagechanging.LanguageChangeActivity" />
+        <activity android:name=".ui.oldorders.OldOrderActivity" />
+        <activity android:name=".ui.timer.TimerActivity"></activity>
     </application>
 
 </manifest>

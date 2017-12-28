@@ -5,33 +5,31 @@ xmlns:app="http://schemas.android.com/apk/res-auto"
 xmlns:tools="http://schemas.android.com/tools"
 android:layout_width="match_parent"
 android:layout_height="match_parent"
-android:background="@drawable/full_background_3"
+android:background="@drawable/f_bacground"
 tools:context="com.cp.app.checkpoint.ui.subcategoriy.SubCategoryActivity"
     >
 
 
-<ImageView
-    android:id="@+id/logo"
-    android:layout_width="125dp"
-    android:layout_height="125dp"
-    android:layout_centerHorizontal="true"
-    android:src="@drawable/logo_with_white_border"
-    android:layout_marginTop="42dp"
-    android:scaleType="centerCrop"
-    android:layout_alignParentTop="true"
-    />
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="120dp"
+        android:layout_height="150dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/logosel"
+        android:scaleType="centerCrop"
+        android:layout_alignParentTop="true"
+        />
 
 <TextView
     android:id="@+id/logo_menu"
-    android:layout_width="150dp"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_below="@id/logo"
     android:layout_centerHorizontal="true"
     android:text="@string/btn_hot_drinks"
     android:gravity="center"
-    android:textSize="32dp"
+    android:textSize="32sp"
     android:textColor="@color/white"
-    android:textStyle=""
     />
 
 <RelativeLayout
@@ -50,6 +48,7 @@ tools:context="com.cp.app.checkpoint.ui.subcategoriy.SubCategoryActivity"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:divider="@null"
+    android:groupIndicator="@null"
 
     >
 
@@ -66,7 +65,8 @@ tools:context="com.cp.app.checkpoint.ui.subcategoriy.SubCategoryActivity"
     android:orientation="horizontal"
     >
 
-    <Button
+    <TextView
+        android:id="@+id/tv_listItem_counter"
         android:layout_width="0dp"
         android:layout_height="30dp"
         android:layout_weight="0.30"
@@ -78,6 +78,7 @@ tools:context="com.cp.app.checkpoint.ui.subcategoriy.SubCategoryActivity"
         />
 
     <Button
+        android:id="@+id/btn_your_list"
         android:layout_width="0dp"
         android:layout_weight="1"
         android:layout_height="50dp"

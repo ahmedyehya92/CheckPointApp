@@ -6,28 +6,29 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.cp.app.checkpoint.ui.main.MainActivity"
-    android:background="@drawable/full_background_3"
+    android:background="@drawable/f_bacground"
     >
 
 
     <ImageView
         android:id="@+id/logo"
-        android:layout_width="125dp"
-        android:layout_height="125dp"
+        android:layout_width="120dp"
+        android:layout_height="150dp"
         android:layout_centerHorizontal="true"
-        android:src="@drawable/logo_with_white_border"
-        android:layout_marginTop="42dp"
+        android:src="@drawable/logosel"
         android:scaleType="centerCrop"
         android:layout_alignParentTop="true"
         />
 
     <ImageView
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="32dp"
         android:id="@+id/logo_menu"
-        android:layout_width="150dp"
-        android:layout_height="100dp"
+        android:layout_width="140dp"
+        android:layout_height="58.3dp"
         android:layout_below="@id/logo"
         android:layout_centerHorizontal="true"
-        android:src="@drawable/logo_signup"
+        android:src="@drawable/menu_shape"
         />
 
     <RelativeLayout
@@ -176,7 +177,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
-        <Button
+        <TextView
+            android:id="@+id/tv_list_order_counter"
             android:layout_width="0dp"
             android:layout_height="30dp"
             android:layout_weight="0.30"

@@ -7,18 +7,17 @@
         android:paddingLeft="80dp"
         android:paddingRight="80dp"
         android:paddingEnd="80dp"
-        android:background="@drawable/full_background_3"
+        android:background="@drawable/f_bacground"
         >
 
 
 
         <ImageView
             android:id="@+id/logo_signup"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
+            android:layout_width="120dp"
+            android:layout_height="150dp"
             android:layout_centerHorizontal="true"
-            android:src="@drawable/logo_with_white_border"
-            android:layout_marginTop="42dp"
+            android:src="@drawable/logosel"
             android:scaleType="centerCrop"
             android:layout_alignParentTop="true"
             />

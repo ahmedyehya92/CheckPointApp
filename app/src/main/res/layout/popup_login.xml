@@ -2,14 +2,11 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shape_signup_popup"
+    android:layout_margin="16dp"
     >
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/shape_signup_popup"
-        >
-    </View>
+
     <View
         android:layout_width="200dp"
         android:layout_height="229.4dp"
@@ -19,7 +16,7 @@
         />
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:padding="16dp"
         >
         <Button
@@ -49,8 +46,9 @@
             android:layout_marginLeft="24dp"
             android:layout_marginEnd="24dp"
             android:layout_marginRight="24dp"
-            android:layout_marginBottom="24dp"
-            android:layout_centerVertical="true"
+            android:layout_marginBottom="32dp"
+            android:layout_below="@id/tx_login_popup_title"
+            android:layout_marginTop="32dp"
             android:background="@drawable/shape_edite_text"
             android:drawableStart="@drawable/ic_password_et"
             android:drawableLeft="@drawable/ic_password_et"
@@ -81,8 +79,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_below="@id/btn_confirm_sign_up_popup"
+            android:layout_below="@id/btn_login_login_popup"
             android:orientation="vertical"
             android:gravity="center_horizontal"
             >

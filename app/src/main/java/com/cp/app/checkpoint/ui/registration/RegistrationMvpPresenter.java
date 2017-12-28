@@ -10,6 +10,5 @@ public interface RegistrationMvpPresenter<V extends RegistrationMvpView> extends
    void startConfirm(String name, String mobileNo, String gender, String dateOfBirth, String address, String password);
    void saveUserData(String id);
    void startLogin(String password);
-   void addItemToOrderList(String itemId, String itemName, Integer desiredQuantity);
 
 }

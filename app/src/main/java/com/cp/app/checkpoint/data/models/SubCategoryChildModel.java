@@ -7,10 +7,16 @@ package com.cp.app.checkpoint.data.models;
 public class SubCategoryChildModel {
     private Integer id;
     private String name;
+    private Integer priceOfOnePiece;
 
-    public SubCategoryChildModel(Integer id, String name) {
+    public SubCategoryChildModel(Integer id, String name, Integer priceOfOnePiece) {
         this.id = id;
         this.name = name;
+        this.priceOfOnePiece = priceOfOnePiece;
+    }
+
+    public Integer getPriceOfOnePiece() {
+        return priceOfOnePiece;
     }
 
     public String getId() {

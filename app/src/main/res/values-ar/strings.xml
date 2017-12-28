@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Check Point</string>
+    <string name="btn_hot_drinks">مشروبات ساخنة</string>
+    <string name="btn_signup">تسجيل</string>
+    <string name="btn_login">تسجيل الدخول</string>
+    <string name="btn_login_later">متابعة بدون تسجيل</string>
+    <string name="title_signup_popup">التسجيل</string>
+    <string name="hint_name_et_sign_up_popup">الإسم</string>
+    <string name="hint_mob_et_sign_up_popup">رقم الموبايل</string>
+    <string name="hint_birth_date_et_sign_up_popup">تاريخ الميلاد</string>
+    <string name="hint_address_et_sign_up_popup">العنوان</string>
+    <string name="hint_password_et_sign_up_popup">الرقم السري</string>
+    <string name="tv_continue_with">التسجيل عن طريق</string>
+    <string name="btn_confirm_sign_up_popup">تسجيل</string>
+    <string name="gender_male">ذكر</string>
+    <string name="gender_female">أنثى</string>
+    <string name="toast_note_field_empty">فضلا املأ باقي الحقول</string>
+    <string name="gender_no_selection">اختر الجنس</string>
+    <string name="invalid_gender_signup">فضلا اختر النوع من خانة الجنس</string>
+    <string name="invalid_mobnum_signup">صيغة رقم الموبايل غير صحيحة</string>
+    <string name="title_login_popup">تسجيل الدخول للتطبيق</string>
+    <string name="btn_login_login_popup">تسجيل الدخول</string>
+    <string name="toast_empty_password_login_popup">فضلا قم بإدخال الرقم السري</string>
+    <string name="btn_cold_drinks">مشروبات باردة</string>
+    <string name="btn_deserts">حلويات</string>
+    <string name="btn_your_list">طلباتك</string>
+    <string name="popup_tittle_set_amount">تحديد الكمية</string>
+    <string name="btn_add_to_cart">إضافة للقائمة</string>
+    <string name="toast_exceeded_maximum_allowed_quantity">الرجاء إدخال قيمة أقل من الحد الإقصى (10)</string>
+    <string name="title_your_list_activity">قائمة الطلبات</string>
+    <string name="title_total_price">السعر الكلي</string>
+    <string name="unit_egypt">جنيه</string>
+    <string name="title_language">لغة التطبيق</string>
+    <string name="menu_item_about_us">عن التطبيق</string>
+    <string name="title_old_order">الطلبات السابقة</string>
+
+    <string-array name="gender_array">
+        <item>حدد الجنس</item>
+        <item>ذكر</item>
+        <item>أنثى</item>
+    </string-array>
+
+    <string-array name="languages_array">
+        <item>Chose languag</item>
+        <item>English</item>
+        <item>العربية</item>
+    </string-array>
+    <string name="title_old_orders">الفواتير السابقة</string>
+    <string name="title_your_list_order">الطلبات</string>
+</resources>

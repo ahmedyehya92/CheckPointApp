@@ -10,5 +10,5 @@ import java.util.ArrayList;
  */
 
 public interface MainMvpPresenter<V extends MainMvpView> extends MvpPresenter<V> {
-    ArrayList<ListOfOneOrderModel> getOrderList();
+    Integer getNumberOfItemsListOrder();
 }

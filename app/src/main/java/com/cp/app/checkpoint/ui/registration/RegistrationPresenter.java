@@ -29,8 +29,4 @@ public class RegistrationPresenter<V extends RegistrationMvpView> extends BasePr
         getDataManager().checkLoginUser(password);
     }
 
-    @Override
-    public void addItemToOrderList(String itemId, String itemName, Integer desiredQuantity) {
-        getDataManager().addItemToList(itemId,itemName,desiredQuantity);
-    }
 }

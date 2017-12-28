@@ -1,5 +1,7 @@
 package com.cp.app.checkpoint.ui.subcategoriy;
 
+import android.view.View;
+
 import com.cp.app.checkpoint.ui.base.MvpView;
 
 /**
@@ -7,5 +9,7 @@ import com.cp.app.checkpoint.ui.base.MvpView;
  */
 
 public interface SubCategoryMvpView extends MvpView {
-void initActivityViews();
+void initViews();
+void openAddToCartPopup(View v, final String itemId, final String itemName,final Integer priceOfOnePiece);
+void onYourListButtonClick();
 }

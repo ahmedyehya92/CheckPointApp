@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/f_bacground"
+    tools:context="com.cp.app.checkpoint.ui.languagechanging.LanguageChangeActivity"
+    >
+
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="120dp"
+        android:layout_height="150dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/logosel"
+        android:scaleType="centerCrop"
+        android:layout_alignParentTop="true"
+        />
+
+    <TextView
+        android:id="@+id/title_your_list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/logo"
+        android:layout_alignRight="@+id/logo"
+        android:layout_below="@+id/logo"
+        android:gravity="center"
+        android:text="@string/title_language"
+        android:textColor="@color/white"
+        android:textSize="32sp"
+        android:textStyle="" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/title_your_list"
+        android:paddingStart="40dp"
+        android:paddingLeft="40dp"
+        android:paddingEnd="40dp"
+        android:paddingRight="40dp"
+        android:layout_centerVertical="true"
+        android:layout_above="@id/btn_layout_order"
+        android:orientation="vertical"
+        android:gravity="center"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="42dp"
+            android:text="Change the language"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+            <Spinner
+                android:id="@+id/spinner_languages"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginLeft="24dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginRight="24dp"
+                android:layout_marginBottom="24dp"
+                android:padding="3dp"
+                android:background="@drawable/shape_tv_total_price"
+                android:entries="@array/languages_array"
+                android:popupBackground="@color/black_op_90"
+                />
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+
+</RelativeLayout>

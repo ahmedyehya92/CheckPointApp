@@ -13,6 +13,8 @@
         android:layout_marginStart="30dp"
         android:layout_marginLeft="30dp"
         android:layout_marginEnd="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
         android:layout_marginRight="30dp"
         android:gravity="center_vertical"
         >
@@ -22,7 +24,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/btn_hot_drinks"
-            android:textStyle="bold"
+            android:textSize="16sp"
             android:textColor="@color/white"
             />
 
@@ -49,9 +51,9 @@
             />
         <Button
             android:id="@+id/btn_plus_to_order"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:background="@drawable/ic_plus_to_order"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:background="@drawable/ic_add_to_order"
             />
 
     </LinearLayout>

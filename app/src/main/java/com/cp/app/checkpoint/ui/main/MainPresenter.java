@@ -16,10 +16,9 @@ public class MainPresenter <V extends MainMvpView> extends BasePresenter <V> imp
     {
         super(dataManager);
     }
+
     @Override
-    public ArrayList<ListOfOneOrderModel> getOrderList() {
-        ArrayList<ListOfOneOrderModel> orderList = new ArrayList<>();
-        orderList = getDataManager().getOrderListArray();
-        return orderList;
+    public Integer getNumberOfItemsListOrder() {
+        return getDataManager().getNumberOfItemList();
     }
 }

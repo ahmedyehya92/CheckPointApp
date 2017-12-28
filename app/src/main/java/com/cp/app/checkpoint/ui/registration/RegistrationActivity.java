@@ -60,8 +60,6 @@ public class RegistrationActivity extends BaseActivity implements RegistrationMv
         registrationPresenter = new RegistrationPresenter(dataManager);
 
         registrationPresenter.onAttach(this);
-        registrationPresenter.addItemToOrderList("5","Tea",5);
-        registrationPresenter.addItemToOrderList("3","cofee",6);
 
         btnSignup.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,6 +81,7 @@ public class RegistrationActivity extends BaseActivity implements RegistrationMv
                 startActivity(MainActivity.getStartIntent(RegistrationActivity.this));
             }
         });
+
 
     }
 
@@ -174,7 +173,7 @@ public class RegistrationActivity extends BaseActivity implements RegistrationMv
         final Point size = new Point();
         display.getSize(size);
 
-        //popWindow = new PopupWindow(inflatedView, size.x - 150,size.y - 700, true );
+        //popWindow = new PopupWindow(inflatedView, size.x - 150,size.y - 600, true );
 
         // to set size as match_parent to fullscreen
         popWindow = new PopupWindow(inflatedView, RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT, true);

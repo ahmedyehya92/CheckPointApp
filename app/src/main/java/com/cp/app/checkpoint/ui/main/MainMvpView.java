@@ -1,5 +1,8 @@
 package com.cp.app.checkpoint.ui.main;
 
+import android.widget.Button;
+import android.widget.LinearLayout;
+
 import com.cp.app.checkpoint.ui.base.MvpView;
 
 /**
@@ -7,4 +10,7 @@ import com.cp.app.checkpoint.ui.base.MvpView;
  */
 
 public interface MainMvpView extends MvpView{
+
+    void initViews();
+
 }

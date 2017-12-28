@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/f_bacground"
+    tools:context="com.cp.app.checkpoint.ui.timer.TimerActivity"
+    >
+
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="120dp"
+        android:layout_height="150dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/logosel"
+        android:scaleType="centerCrop"
+        android:layout_alignParentTop="true"
+        />
+
+    <TextView
+        android:id="@+id/logo_menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/logo"
+        android:layout_centerHorizontal="true"
+        android:text="@string/part1_title_timer"
+        android:gravity="center"
+        android:textSize="32sp"
+        android:textColor="@color/white"
+        />
+<TextView
+    android:id="@+id/sec_part_of_title"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/logo_menu"
+    android:layout_centerHorizontal="true"
+    android:text="@string/part2_title_timer"
+    android:textSize="32sp"
+    android:textColor="@color/white"
+    />
+    <RelativeLayout
+        android:layout_below="@id/sec_part_of_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="40dp"
+        android:paddingLeft="40dp"
+        android:paddingEnd="40dp"
+        android:paddingRight="40dp"
+        android:layout_centerVertical="true"
+
+        >
+        <TextView
+            android:id="@+id/title_co"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title_counter"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@id/title_co"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp"
+            >
+            <TextView
+                android:id="@+id/tv_minutes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="72sp"
+                android:text="00"
+                android:typeface="monospace"
+                android:textColor="@color/white"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" : "
+                android:textColor="@color/white"
+                android:textSize="30sp"
+                />
+            <TextView
+                android:id="@+id/tv_seconds"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00"
+                android:textColor="@color/white"
+                android:typeface="monospace"
+                android:textSize="30sp"
+                />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+
+</RelativeLayout>

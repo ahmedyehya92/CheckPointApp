@@ -73,7 +73,7 @@ public class SubCategoriesExpandableListAdapter extends BaseExpandableListAdapte
             public void onClick(View view) {
                 if(customListner != null)
                 {
-                    customListner.onButtonClickListner(groupPosition,childPosition,childModel.getName());
+                    customListner.onButtonClickListner(view, groupPosition,childPosition,childModel.getId(),childModel.getName(),childModel.getPriceOfOnePiece());
                 }
             }
         });
@@ -132,7 +132,7 @@ public class SubCategoriesExpandableListAdapter extends BaseExpandableListAdapte
 
 
     public interface customButtonListener {
-        public void onButtonClickListner(int groupPosition, int childPosition,String value);
+        public void onButtonClickListner(View v, int groupPosition, int childPosition,String itemId, String itemName, Integer priceOfDesiredQuantity);
     }
     public void setCustomButtonListner(customButtonListener listener) {
         this.customListner = listener;

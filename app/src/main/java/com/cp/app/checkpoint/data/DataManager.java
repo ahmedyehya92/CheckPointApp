@@ -1,5 +1,8 @@
 package com.cp.app.checkpoint.data;
 
+import android.net.Uri;
+
+import com.cp.app.checkpoint.data.dphelper.SQLiteHandler;
 import com.cp.app.checkpoint.data.models.ListOfOneOrderModel;
 
 import java.util.ArrayList;
@@ -10,7 +13,47 @@ import java.util.ArrayList;
 
 public class DataManager {
 
-    private ArrayList<ListOfOneOrderModel> orderListArray= new ArrayList<ListOfOneOrderModel>();
+    private SQLiteHandler mSqliteHandler;
+
+    SharedPrefHelper sharedPrefHelper;
+
+
+    public DataManager(SQLiteHandler mSqliteHandler, SharedPrefHelper sharedPrefHelper1)
+    {
+        this.mSqliteHandler = mSqliteHandler;
+        this.sharedPrefHelper = sharedPrefHelper1;
+    }
+
+    public void clearShPref()
+    {
+        sharedPrefHelper.clear();
+    }
+    public void saveDateForCount(String date)
+    {
+        sharedPrefHelper.saveDate(date);
+    }
+    public String getDatetoCount()
+    {
+        return sharedPrefHelper.getDate();
+    }
+
+    public void addItemToOrderList(String itemId, String itemName, String desiredQuantity, String totalPrice) {
+        mSqliteHandler.addItemToOrderList(itemId,itemName,desiredQuantity,totalPrice);
+    }
+    public ArrayList<ListOfOneOrderModel> getOrderItemList()
+    {
+        return mSqliteHandler.getOrderItemList();
+    }
+
+    public Integer getNumberOfItemList ()
+    {
+        return mSqliteHandler.getOrderItemList().size();
+    }
+
+    public void deleteItemFromOrderList(Uri uri)
+    {
+        mSqliteHandler.deleteItemFromOrderList(uri);
+    }
 
     public void uploadUserData(String name, String mobileNo, String gender, String dateOfBirth, String address, String password) {
        System.out.println(name);
@@ -30,15 +73,9 @@ public class DataManager {
     }
 
     // order list methods;
-    public void addItemToList(String item_id, String itemName, Integer desiredQuantity)
-    {
-        orderListArray.add(new ListOfOneOrderModel(item_id,itemName,desiredQuantity));
-    }
 
-    public ArrayList<ListOfOneOrderModel> getOrderListArray ()
-    {
-        return orderListArray;
-    }
+
+
 
 
 }

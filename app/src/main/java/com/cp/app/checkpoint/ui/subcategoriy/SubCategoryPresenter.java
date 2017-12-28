@@ -12,5 +12,15 @@ public class SubCategoryPresenter<V extends SubCategoryMvpView> extends BasePres
     {
         super(dataManager);
     }
+    @Override
+    public void addItemToOrderList(String itemId, String itemName, String desiredQuantity, String totalPrice) {
+        getDataManager().addItemToOrderList(itemId,itemName,desiredQuantity,totalPrice);
+    }
+
+    @Override
+    public Integer getNumberOfListItemsOrder() {
+        return getDataManager().getNumberOfItemList();
+    }
+
 
 }
