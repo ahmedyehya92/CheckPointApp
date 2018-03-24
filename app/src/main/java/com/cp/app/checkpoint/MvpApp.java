@@ -29,7 +29,8 @@ public class MvpApp extends Application {
         SQLiteHandler sqLiteHandler = new SQLiteHandler(getApplicationContext());
         SharedPrefHelper sharedPrefHelper = new SharedPrefHelper(getApplicationContext());
         dataManager = new DataManager(sqLiteHandler,sharedPrefHelper);
-        //setLocale("ar");
+        setLocale(getDataManager().getAppLanguage());
+
 
     }
 
@@ -37,7 +38,10 @@ public class MvpApp extends Application {
         return dataManager;
     }
 
-
+    public void logout ()
+    {
+        getDataManager().clearUserData();
+    }
 
 
 

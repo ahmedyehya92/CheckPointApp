@@ -11,4 +11,9 @@ public class LanguageChangePresenter<V extends LanguageChangeMvpView> extends Ba
     public LanguageChangePresenter(DataManager dataManager) {
         super(dataManager);
     }
+
+    @Override
+    public void setAppLanguage(String appLanguage) {
+        getDataManager().setAppLanguage(appLanguage);
+    }
 }

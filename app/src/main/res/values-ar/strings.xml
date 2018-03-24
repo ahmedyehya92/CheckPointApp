@@ -48,4 +48,34 @@
     </string-array>
     <string name="title_old_orders">الفواتير السابقة</string>
     <string name="title_your_list_order">الطلبات</string>
+    <string name="logout_menue_item">تسجيل الخروج</string>
+    <string name="unknown_error">خطأ غير معروف</string>
+    <string name="part1_title_timer">الوقت المتبقي</string>
+    <string name="part2_title_timer">لتحضير طلبك</string>
+    <string name="title_counter">طلبك سوف يكون جاهز خلال</string>
+    <string name="invalid_birth_date">حدد تاريخ ميلادك</string>
+    <string name="user_is_existed">رقم الموبايل مستخدم سابقا</string>
+    <string name="try_again">حاول مرة أخرى</string>
+    <string name="register_now">التسجيل الآن</string>
+    <string name="mob_num_not_registered">لم يتم التسجيل بهذا الرقم سابقا</string>
+    <string name="tex_no_internet">تحقق من اتصالك بالشبكة</string>
+    <string name="item_profile">الملف الشخصي</string>
+    <string name="changes_saved">تم حفظ التغييرات</string>
+    <string name="connection_error">تحقق من اتصالك بالشبكة</string>
+    <string name="change_the_language">تغيير لغة التطبيق</string>
+    <string name="order">إرسال الطلب</string>
+    <string name="check_your_connection_or_try_again">تحقق من اتصالك بالشبكة أو حاول مرة أخرى</string>
+    <string name="points">نقطة</string>
+    <string name="save_changes">حفظ التغييرات</string>
+    <string name="signup_to_con">قم بالتسجيل للاستمرار</string>
+    <string name="congratulations_your_order">مبروك</string>
+    <string name="is_being_prepared_now">جاري تحضير طلبك الآن</string>
+    <string name="no_items">عفوا لا يوجد عناصر في هذه القائمة حاليا</string>
+    <string name="toast_logged_out">تم تسجيل الخروج</string>
+    <string name="notifi_title">نحن بانتظارك</string>
+    <string name="notifi_content">طلبك جاهز للإستلام</string>
+    <string name="congr_new_bonus">مبروك</string>
+    <string name="chose_language">اختر اللغة</string>
+    <string name="added_points">النقاط المضافة</string>
+    <string name="new_score">مجموع نقاطك</string>
 </resources>

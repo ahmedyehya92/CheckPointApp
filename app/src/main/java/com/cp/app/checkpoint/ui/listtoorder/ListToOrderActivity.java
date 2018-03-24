@@ -1,6 +1,7 @@
 package com.cp.app.checkpoint.ui.listtoorder;
 
 import android.app.AlarmManager;
+import android.app.FragmentManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
@@ -15,6 +16,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.cp.app.checkpoint.MvpApp;
 import com.cp.app.checkpoint.R;
@@ -24,10 +26,13 @@ import com.cp.app.checkpoint.data.dphelper.ItemContract;
 import com.cp.app.checkpoint.data.models.ListOfOneOrderModel;
 import com.cp.app.checkpoint.services.OnAlarmReceiver;
 import com.cp.app.checkpoint.ui.base.BaseActivity;
+import com.cp.app.checkpoint.ui.registration.RegistrationActivity;
 import com.cp.app.checkpoint.ui.timer.TimerActivity;
+import com.cp.app.checkpoint.utils.StaticValues;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 import static com.cp.app.checkpoint.data.dphelper.ItemContract.*;
 
@@ -42,6 +47,7 @@ public class ListToOrderActivity extends BaseActivity implements ListToOrderMvpV
     private int day;
     private int hour;
     private int minute;
+    private int seconds;
 
     ListToOrderPresenter presenter;
     @Override
@@ -89,7 +95,9 @@ public class ListToOrderActivity extends BaseActivity implements ListToOrderMvpV
 
     @Override
     public void onOrderButtonClick() {
-        setAlarm();
+        presenter.sendOrder();
+        // setAlarm();
+        // showNewBonusAlert("5","20");
     }
 
     @Override
@@ -100,18 +108,63 @@ public class ListToOrderActivity extends BaseActivity implements ListToOrderMvpV
         day = c.get(Calendar.DAY_OF_MONTH);
         hour = c.get(Calendar.HOUR_OF_DAY);
         minute = c.get(Calendar.MINUTE);
+        seconds = c.get(Calendar.SECOND);
 
-        presenter.setCounterDate(new StringBuilder().append(year).append("-").append(month+1).append("-")
-                .append(day).append(" ").append(hour).append(":").append(minute+15).append(":").append(0).toString());
 
         Intent i = new Intent(this, OnAlarmReceiver.class);
         PendingIntent pi = PendingIntent.getBroadcast(this, 0, i,
                 PendingIntent.FLAG_ONE_SHOT);
         Calendar calendar = Calendar.getInstance();
-        calendar.set(Calendar.SECOND, calendar.get(Calendar.SECOND) + 900);
+
+        int minutePlus = 15;
+        int newMinutes = minute+minutePlus;
+        presenter.setCounterDate(new StringBuilder().append(year).append("-").append(month+1).append("-")
+                .append(day).append(" ").append(hour).append(":").append(newMinutes).append(":").append(seconds).toString());
+
+        calendar.set(Calendar.MINUTE,newMinutes);
+
+
         AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-        alarmManager.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pi);
-        startActivity(TimerActivity.getStartIntent(this));
+        alarmManager.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis()
+                + (minutePlus*60 * 1000), pi);
+        // startActivity(TimerActivity.getStartIntent(this));
+    }
+
+    @Override
+    public void showNewBonusAlert(String newBonus, String score) {
+        final String bonus = newBonus;
+        final String newScore = score;
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                FragmentManager fm = getFragmentManager();
+                BonusAlertDialog bonusAlertDialog = new BonusAlertDialog();
+                Bundle args = new Bundle();
+                args.putString(StaticValues.NEW_BONUS_KEY, bonus);
+                args.putString(StaticValues.NEW_SCORE_KEY, newScore);
+                bonusAlertDialog.setArguments(args);
+                bonusAlertDialog.show(fm,"Bonus Alert Dialog");
+            }
+        });
+
+    }
+
+    @Override
+    public void returnToRegistrationActivity() {
+        startActivity(RegistrationActivity.getStartIntent(this));
+        finish();
+        Toast.makeText(this, R.string.signup_to_con, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void showToast(int message) {
+        final String mesg = getString(message);
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                Toast.makeText(ListToOrderActivity.this, mesg, Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     @Override

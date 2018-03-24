@@ -11,4 +11,6 @@ import java.util.ArrayList;
 
 public interface MainMvpPresenter<V extends MainMvpView> extends MvpPresenter<V> {
     Integer getNumberOfItemsListOrder();
+    String getCounterDate();
+    void reqCategoriesList();
 }

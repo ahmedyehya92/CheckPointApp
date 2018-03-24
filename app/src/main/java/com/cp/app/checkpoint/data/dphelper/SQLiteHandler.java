@@ -63,12 +63,12 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
         if (newUri == null) {
             // If the new content URI is null, then there was an error with insertion.
-            Toast.makeText(context, "failed to insert",
-                    Toast.LENGTH_SHORT).show();
+            /* Toast.makeText(context, "failed to insert",
+                    Toast.LENGTH_SHORT).show(); */
         } else {
             // Otherwise, the insertion was successful and we can display a toast.
-            Toast.makeText(context,"insert is done",
-                    Toast.LENGTH_SHORT).show();
+           /* Toast.makeText(context,"insert is done",
+                    Toast.LENGTH_SHORT).show(); */
         }
 
 
@@ -107,12 +107,13 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         int checkEffect = context.getContentResolver().delete(uri,null,null);
         if (checkEffect > 0) {
             // If the new content URI is null, then there was an error with insertion.
-            Toast.makeText(context, "delete is done",
-                    Toast.LENGTH_SHORT).show();
+
+            /* Toast.makeText(context, "delete is done",
+                    Toast.LENGTH_SHORT).show(); */
         } else {
             // Otherwise, the insertion was successful and we can display a toast.
-            Toast.makeText(context,"delete is failed",
-                    Toast.LENGTH_SHORT).show();
+         /*   Toast.makeText(context,"delete is failed",
+                    Toast.LENGTH_SHORT).show(); */
         }
     }
 

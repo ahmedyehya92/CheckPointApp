@@ -50,7 +50,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="42dp"
-            android:text="Change the language"
+            android:text="@string/change_the_language"
             android:textColor="@color/white"
             android:textSize="20sp"
             />

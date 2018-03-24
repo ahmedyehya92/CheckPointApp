@@ -11,5 +11,5 @@ import com.cp.app.checkpoint.ui.base.MvpView;
 
 public interface PopupAddToCart extends MvpView {
     void initPopubVies(View v);
-    void onAddToCartButtonClick(PopupWindow popupWindow, String userId, String itemId, String itemName, Integer quantity, Integer totalPrice);
+    void onAddToCartButtonClick(PopupWindow popupWindow, String itemId, String itemName, Integer quantity, Integer totalPrice);
 }

@@ -44,13 +44,6 @@ public class TimerActivity extends BaseActivity implements TimerMvpView {
 
     public void setTimerView()
     {
-        final Calendar calendar = Calendar.getInstance();
-        year = calendar.get(Calendar.YEAR);
-        month = calendar.get(Calendar.MONTH);
-        day = calendar.get(Calendar.DAY_OF_MONTH);
-        hour = calendar.get(Calendar.HOUR_OF_DAY);
-        minute = calendar.get(Calendar.MINUTE);
-
         String date = timerPresenter.getCounterDate();
         if (date != null)
         {

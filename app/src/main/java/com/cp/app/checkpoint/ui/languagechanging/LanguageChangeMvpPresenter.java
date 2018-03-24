@@ -7,5 +7,5 @@ import com.cp.app.checkpoint.ui.base.MvpPresenter;
  */
 
 public interface LanguageChangeMvpPresenter <V extends LanguageChangeMvpView> extends MvpPresenter<V> {
-
+    void setAppLanguage(String appLanguage);
 }

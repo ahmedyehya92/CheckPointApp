@@ -15,4 +15,5 @@ public interface ListToOrderMvpPresenter<V extends ListToOrderMvpView> extends M
     public ArrayList<ListOfOneOrderModel> getOrderList();
     public void deleteItemFromOrderList(Uri uri);
     public void setCounterDate(String date);
+    void sendOrder();
 }

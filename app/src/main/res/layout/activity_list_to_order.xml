@@ -98,7 +98,7 @@
             android:layout_width="100dp"
             android:layout_height="50dp"
             android:background="@drawable/shape_btn_your_list"
-            android:text="Order"
+            android:text="@string/order"
             android:textColor="@color/white"
             style="?android:attr/buttonBarButtonStyle"
 

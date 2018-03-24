@@ -14,6 +14,7 @@ public interface RegistrationMvpView extends MvpView {
     void openSignUpPopu(View v);
     void openLoginPopup(View v);
     void openMainActivity();
+    void onLoginButtonClicked();
 
     // popup sharable methods
     void onFacebookButtonClick();
@@ -22,4 +23,10 @@ public interface RegistrationMvpView extends MvpView {
 
     void initViewActivity();
 
+    void toastLoginSuccess();
+    void shoSnackbarAlertWrongReg();
+    void showSnackbarAlertexistedUser();
+    void showSnacbarUnknownErrorLogin();
+    void showSnacbarPasswordIncorrectLogin();
+    void showSnackbarUserNotExisted();
 }

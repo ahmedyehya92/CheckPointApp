@@ -10,4 +10,7 @@ public interface ListToOrderMvpView extends MvpView {
     void initViewsActivity();
     void onOrderButtonClick();
     void setAlarm();
+    void showNewBonusAlert(String newBonus, String score);
+    void returnToRegistrationActivity();
+    void showToast (int message);
 }

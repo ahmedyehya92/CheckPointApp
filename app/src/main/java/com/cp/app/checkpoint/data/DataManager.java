@@ -28,6 +28,10 @@ public class DataManager {
     {
         sharedPrefHelper.clear();
     }
+    public void clearTimer()
+    {
+        sharedPrefHelper.clearTimer();
+    }
     public void saveDateForCount(String date)
     {
         sharedPrefHelper.saveDate(date);
@@ -65,17 +69,41 @@ public class DataManager {
     }
     public void saveUserData (String id)
     {
+        sharedPrefHelper.setId(id);
+        sharedPrefHelper.setLogin(true);
+    }
 
+    public void clearUserData ()
+    {
+        sharedPrefHelper.setLogin(false);
+        sharedPrefHelper.setId(null);
+    }
+
+    public boolean isLoggedIn()
+    {
+        return sharedPrefHelper.isLoggedIn();
     }
     public void checkLoginUser(String password)
     {
         System.out.println(password);
     }
 
+    public String getUserId()
+    {
+        return sharedPrefHelper.getId();
+    }
+
     // order list methods;
 
 
-
+    public void setAppLanguage(String appLanguage)
+    {
+        sharedPrefHelper.setAppLanguage(appLanguage);
+    }
+    public String getAppLanguage ()
+    {
+        return sharedPrefHelper.getAppLanguage();
+    }
 
 
 }

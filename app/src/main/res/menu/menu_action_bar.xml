@@ -9,6 +9,10 @@
         android:title="@string/title_language"
         />
     <item
+        android:id="@+id/item_profile"
+        android:title="@string/item_profile"
+        />
+    <item
         android:id="@+id/item_old_order"
         android:title="@string/title_old_order"
         />

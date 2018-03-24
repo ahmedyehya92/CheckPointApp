@@ -23,7 +23,7 @@ public class ListToOrderAdabter extends ArrayAdapter<ListOfOneOrderModel> {
     Context context;
     ViewHolder viewHolder;
 
-    customButtonListener customListener;
+    private customButtonListener customListener;
 
     public ListToOrderAdabter(Context context, ArrayList<ListOfOneOrderModel> items)
     {

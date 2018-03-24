@@ -8,5 +8,6 @@
     <color name="brown_500_op_25">#40795548</color>
     <color name="black_op_90">#E6000000</color>
     <color name="btn_confirm">#f6bd93</color>
-
+    <color name="btn_facebook">#3b5998</color>
+    <color name="tex_error">#42a0e1</color>
 </resources>

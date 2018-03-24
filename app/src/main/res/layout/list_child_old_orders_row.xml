@@ -24,6 +24,7 @@
             android:text="@string/btn_hot_drinks"
             android:textStyle="bold"
             android:textColor="@color/white"
+            android:maxLength="25"
             />
 
         <TextView

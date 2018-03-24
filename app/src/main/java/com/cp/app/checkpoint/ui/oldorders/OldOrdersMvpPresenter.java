@@ -7,4 +7,6 @@ import com.cp.app.checkpoint.ui.base.MvpPresenter;
  */
 
 public interface OldOrdersMvpPresenter <V extends OldOrdersMvpView> extends MvpPresenter<V> {
+    void reqOldOrders();
+    String getUserId();
 }

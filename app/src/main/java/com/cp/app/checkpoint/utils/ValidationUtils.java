@@ -27,4 +27,9 @@ public class ValidationUtils {
     {
         return (!(gender.equals(context.getString(R.string.gender_no_selection))));
     }
+
+    public static boolean isDateOfBirthValid (Context context, String dateOfBirth)
+    {
+        return (!(dateOfBirth.equals(context.getString(R.string.hint_birth_date_et_sign_up_popup))));
+    }
 }

@@ -13,17 +13,23 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.cp.app.checkpoint.MvpApp;
 import com.cp.app.checkpoint.R;
+import com.cp.app.checkpoint.data.DataManager;
 import com.cp.app.checkpoint.ui.base.BaseActivity;
 import com.cp.app.checkpoint.ui.main.MainActivity;
+import com.cp.app.checkpoint.ui.oldorders.OldOrderActivity;
+import com.cp.app.checkpoint.ui.profile.ProfileActivity;
+import com.cp.app.checkpoint.ui.registration.RegistrationActivity;
 
 import java.util.Locale;
 
 public class LanguageChangeActivity extends BaseActivity implements LanguageChangeMvpView {
      private Spinner mLanguageSpinner;
     private static Context context;
+    private LanguageChangePresenter languageChangePresenter;
 
      private ArrayAdapter<String> languageSpinnerAdapter;
     public static Intent getStartIntent(Context context) {
@@ -35,6 +41,11 @@ public class LanguageChangeActivity extends BaseActivity implements LanguageChan
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_language_change);
         initViews();
+
+        DataManager dataManager = ((MvpApp) getApplication()).getDataManager();
+        languageChangePresenter = new LanguageChangePresenter(dataManager);
+        languageChangePresenter.onAttach(this);
+
 
         String[] languageArray = {getString(R.string.chose_language),getString(R.string.language_english), getString(R.string.language_arabic)};
         languageSpinnerAdapter = new ArrayAdapter<String>(this, R.layout.language_spinner_row, R.id.language, languageArray);
@@ -49,6 +60,11 @@ public class LanguageChangeActivity extends BaseActivity implements LanguageChan
         switch (item.getItemId()){
             case R.id.item_language :
                 return true;
+            case R.id.item_old_order :
+                startActivity(OldOrderActivity.getStartIntent(getApplicationContext()));
+                return true;
+            case R.id.item_profile :
+                startActivity(ProfileActivity.getStartIntent(getApplicationContext()));
         }
         return true;
     }
@@ -74,8 +90,11 @@ public class LanguageChangeActivity extends BaseActivity implements LanguageChan
                     }
                     else if (selection.equals(getString(R.string.language_english))) {
                         setLocale("en");
+                        languageChangePresenter.setAppLanguage("en");
+
                     } else if (selection.equals(getString(R.string.language_arabic))) {
                         setLocale("ar");
+                        languageChangePresenter.setAppLanguage("ar");
                     }
 
                 }

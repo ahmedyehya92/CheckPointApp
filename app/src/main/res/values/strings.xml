@@ -9,19 +9,19 @@
     <string name="hint_birth_date_et_sign_up_popup">Date of Birth</string>
     <string name="hint_address_et_sign_up_popup">Address</string>
     <string name="hint_password_et_sign_up_popup">Password</string>
-    <string name="tv_continue_with">Continue with</string>
+    <string name="tv_continue_with">Or</string>
     <string name="btn_facebook" translatable="false">Facebook</string>
     <string name="btn_confirm_sign_up_popup">Confirm</string>
 
     <string name="gender_male">Male</string>
     <string name="gender_female">Female</string>
 
-    <string name="chose_language" translatable="false">Chose language</string>
+    <string name="chose_language">Chose language</string>
     <string name="language_english" translatable="false">English</string>
     <string name="language_arabic" translatable="false">العربية</string>
 
     <string name="toast_note_field_empty">Please don\'t let any fields empty</string>
-    <string name="gender_no_selection">No Selection</string>
+    <string name="gender_no_selection">Gender</string>
     <string name="invalid_gender_signup">Please select your gender</string>
     <string name="invalid_mobnum_signup">Invalid mobile number</string>
     <string name="title_login_popup">Log in for Check Point</string>
@@ -63,4 +63,33 @@
     <string name="part1_title_timer">Time to</string>
     <string name="part2_title_timer">Get Your Order</string>
     <string name="title_counter">Your order will be ready within</string>
+
+    <string name="facebook_app_id" translatable="false">1574590452610776</string>
+    <string name="fb_login_protocol_scheme" translatable="false">fb1574590452610776</string>
+    <string name="invalid_birth_date">Invalid birth date</string>
+    <string name="logout_menue_item">Logout</string>
+    <string name="unknown_error">خطأ غير معروف</string>
+    <string name="user_is_existed">This mobile number is already existed</string>
+    <string name="try_again">Try Again</string>
+    <string name="register_now">Register Now</string>
+    <string name="mob_num_not_registered">This phone number is not registered</string>
+    <string name="tex_no_internet">No Internet Connection</string>
+    <string name="item_profile">Profile</string>
+    <string name="changes_saved">Changes saved</string>
+    <string name="connection_error">Connection error</string>
+    <string name="change_the_language">Change the language</string>
+    <string name="order">Checkout</string>
+    <string name="check_your_connection_or_try_again">Check your connection or try again</string>
+    <string name="points">points</string>
+    <string name="save_changes">Save</string>
+    <string name="signup_to_con">Sign up to continue</string>
+    <string name="congr_new_bonus">Congratulations you have added 5 points to your score of 20</string>
+    <string name="congratulations_your_order">Congratulations, your order</string>
+    <string name="is_being_prepared_now">is being prepared now</string>
+    <string name="no_items">Sorry no items for this category yet</string>
+    <string name="toast_logged_out">Logged out</string>
+    <string name="notifi_title">waiting for you :)</string>
+    <string name="notifi_content">You order is ready</string>
+    <string name="added_points">Added Points</string>
+    <string name="new_score">New Score</string>
 </resources>

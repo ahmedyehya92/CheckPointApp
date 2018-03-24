@@ -53,6 +53,47 @@
 
         </ExpandableListView>
 
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            />
+
+        <LinearLayout
+            android:id="@+id/err_conn_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:visibility="gone"
+            >
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/err_connection"
+                android:contentDescription="err_connection"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tex_no_internet"
+                android:layout_marginTop="10dp"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:textColor="@color/tex_error"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/check_your_connection_or_try_again"
+                android:textColor="@color/white"
+                android:layout_marginTop="10dp"
+                android:textSize="16sp"
+                />
+        </LinearLayout>
+
     </RelativeLayout>
 
 

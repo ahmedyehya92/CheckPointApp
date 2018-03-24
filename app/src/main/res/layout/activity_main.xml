@@ -40,142 +40,73 @@
         android:paddingEnd="40dp"
         android:paddingRight="40dp"
         android:layout_centerVertical="true"
+        android:layout_above="@id/c_layout"
         >
-
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            />
         <LinearLayout
-            android:id="@+id/btn_hot_drinks"
+            android:id="@+id/err_conn_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="15dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/btn_hot_drinks"
-                android:textStyle="bold"
-                android:textColor="@color/white"
-                />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/category_space"
-                />
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center_horizontal"
-                android:textStyle="bold"
-                android:textColor="@color/white"
-                android:singleLine="true"
-                android:text="@string/category_dots_space"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/category_space"
-                />
+            android:layout_centerVertical="true"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:visibility="gone"
+            >
             <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                app:srcCompat="@drawable/ic_play_arrow_24dp"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/err_connection"
+                android:contentDescription="err_connection"
                 />
-
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tex_no_internet"
+                android:layout_marginTop="10dp"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:textColor="@color/tex_error"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/check_your_connection_or_try_again"
+                android:textColor="@color/white"
+                android:layout_marginTop="10dp"
+                android:textSize="16sp"
+                />
         </LinearLayout>
+
 
         <LinearLayout
-            android:id="@+id/btn_cold_drinks"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/btn_hot_drinks"
-            android:layout_margin="15dp">
+            android:layout_centerVertical="true"
+            >
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/btn_cold_drinks"
-                android:textStyle="bold"
-                android:textColor="@color/white"
-                />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/category_space"
-                />
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center_horizontal"
-                android:textStyle="bold"
-                android:textColor="@color/white"
-                android:singleLine="true"
-                android:text="@string/category_dots_space"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/category_space"
-                />
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                app:srcCompat="@drawable/ic_play_arrow_24dp"
-                />
-
+            <ListView
+                android:id="@+id/list_category"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:divider="@null">
+            </ListView>
         </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/btn_deserts"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/btn_cold_drinks"
-            android:layout_margin="15dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/btn_deserts"
-                android:textStyle="bold"
-                android:textColor="@color/white"
-                />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/category_space"
-                />
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center_horizontal"
-                android:textStyle="bold"
-                android:textColor="@color/white"
-                android:singleLine="true"
-                android:text="@string/category_dots_space"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/category_space"
-                />
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                app:srcCompat="@drawable/ic_play_arrow_24dp"
-                />
-
-        </LinearLayout>
     </RelativeLayout>
 
+
     <LinearLayout
+        android:id="@+id/c_layout"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        >
 
         <TextView
             android:id="@+id/tv_list_order_counter"
@@ -190,11 +121,11 @@
             />
 
         <Button
+            android:id="@+id/btn_your_list"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="50dp"
             android:background="@drawable/shape_btn_your_list"
-            android:text="@string/btn_your_list"
             android:textColor="@color/white"
             style="?android:attr/buttonBarButtonStyle"
 

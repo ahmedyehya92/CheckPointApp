@@ -9,6 +9,8 @@ import com.cp.app.checkpoint.ui.base.MvpPresenter;
 public interface RegistrationMvpPresenter<V extends RegistrationMvpView> extends MvpPresenter<V> {
    void startConfirm(String name, String mobileNo, String gender, String dateOfBirth, String address, String password);
    void saveUserData(String id);
-   void startLogin(String password);
+   void startLogin(String mobileNum, String password);
+   boolean isLoggedIn ();
+
 
 }

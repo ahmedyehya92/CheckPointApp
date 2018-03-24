@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Point;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.Display;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -13,6 +14,7 @@ import android.widget.EditText;
 import android.widget.ExpandableListView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -29,10 +31,14 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Iterator;
 
 import com.cp.app.checkpoint.ui.listtoorder.ListToOrderActivity;
+import com.cp.app.checkpoint.ui.main.MainActivity;
+import com.cp.app.checkpoint.ui.timer.TimerActivity;
 import com.cp.app.checkpoint.utils.StaticValues;
 
 public class SubCategoryActivity extends BaseActivity implements SubCategoryMvpView,SubCategoriesExpandableListAdapter.customButtonListener,PopupAddToCart {
@@ -44,8 +50,15 @@ public class SubCategoryActivity extends BaseActivity implements SubCategoryMvpV
     private EditText etPopupAddToCart;
     private LinearLayout btnAddToCart;
     private Button btnYourList;
-    private TextView tvListItemCounter;
+    private TextView tvListItemCounter, tvTitle;
 
+    private Handler handler;
+    private Runnable runnable;
+    private Intent intent;
+    private String categoryId;
+    private String categoryName;
+    private LinearLayout errorConnectionLayout;
+    private ProgressBar mprogressBar;
     SubCategoryPresenter subCategoryPresenter;
 
     // TODO get user id from shared preference
@@ -61,9 +74,21 @@ public class SubCategoryActivity extends BaseActivity implements SubCategoryMvpV
         subCategoryPresenter = new SubCategoryPresenter(dataManager);
         subCategoryPresenter.onAttach(this);
 
+        intent = getIntent();
+        categoryId = intent.getStringExtra(StaticValues.KEY_CATEGORY_ID);
+        categoryName = intent.getStringExtra(StaticValues.KEY_CATEGORY_NAME);
+        tvTitle.setText(categoryName);
+
+        btnYourList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onYourListButtonClick();
+            }
+        });
+        subCategoryPresenter.reqSubCategories(categoryId);
 
         // TODO get intent that send from main activity to get id to can send request with id
-
+/*
         String stringResponse = "{\n" +
                 "\t\"cafe\":\n" +
                 "\t\t[\n" +
@@ -81,12 +106,7 @@ public class SubCategoryActivity extends BaseActivity implements SubCategoryMvpV
                 "\t\t\t{\"id\":6,\"name\":\"tea\",\"price\":\"10\"}]\n" +
                 "\t\n" +
                 "}";
-        btnYourList.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                onYourListButtonClick();
-            }
-        });
+
 
         try {
             JSONObject jsonResponse = new JSONObject(stringResponse);
@@ -119,7 +139,7 @@ public class SubCategoryActivity extends BaseActivity implements SubCategoryMvpV
             e.printStackTrace();
         }
 
-
+*/
 
     }
 
@@ -127,6 +147,7 @@ public class SubCategoryActivity extends BaseActivity implements SubCategoryMvpV
     protected void onStart() {
         super.onStart();
         tvListItemCounter.setText(subCategoryPresenter.getNumberOfListItemsOrder().toString());
+        checkTimer();
     }
 
     @Override
@@ -134,6 +155,21 @@ public class SubCategoryActivity extends BaseActivity implements SubCategoryMvpV
         expandableListView = findViewById(R.id.list_item_sub_category);
         btnYourList = findViewById(R.id.btn_your_list);
         tvListItemCounter = findViewById(R.id.tv_listItem_counter);
+
+        tvTitle = findViewById(R.id.logo_menu);
+
+
+        mprogressBar = findViewById(R.id.progress_bar);
+        if (mprogressBar != null) {
+            mprogressBar.setIndeterminate(true);
+            mprogressBar.getIndeterminateDrawable().setColorFilter(getResources().getColor(R.color.white), android.graphics.PorterDuff.Mode.MULTIPLY);
+            mprogressBar.setVisibility(View.VISIBLE);
+        }
+        errorConnectionLayout = findViewById(R.id.err_conn_layout);
+        if(errorConnectionLayout != null )
+        {
+            errorConnectionLayout.setVisibility(View.GONE);
+        }
     }
 
     @Override
@@ -170,7 +206,8 @@ public class SubCategoryActivity extends BaseActivity implements SubCategoryMvpV
                 if (!(quantity>10) )
                 {
                     Integer totalPrice = quantity * priceOfOnePiece;
-                    onAddToCartButtonClick(popWindow, userId, itemId, itemName, quantity,totalPrice);
+
+                    onAddToCartButtonClick(popWindow, itemId, itemName, quantity,totalPrice);
                 }
                 else
                     Toast.makeText(SubCategoryActivity.this, R.string.toast_exceeded_maximum_allowed_quantity, Toast.LENGTH_SHORT).show();
@@ -181,19 +218,74 @@ public class SubCategoryActivity extends BaseActivity implements SubCategoryMvpV
 
     @Override
     public void onYourListButtonClick() {
-        startActivity(ListToOrderActivity.getStartIntent(SubCategoryActivity.this));
+        if (buttonHasCounter())
+        {
+            startActivity(TimerActivity.getStartIntent(SubCategoryActivity.this));
+        }
+        else
+            startActivity(ListToOrderActivity.getStartIntent(SubCategoryActivity.this));
+
+    }
+
+    @Override
+    public void setupSubCategoryList(ArrayList<SubCategoryGroupModel> list) {
+        expandableListAdapter = new SubCategoriesExpandableListAdapter(SubCategoryActivity.this,list);
+        expandableListAdapter.setCustomButtonListner(SubCategoryActivity.this);
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                expandableListView.setAdapter(expandableListAdapter);
+            }
+        });
+
+    }
+
+    @Override
+    public void hideProgressBar() {
+        if (mprogressBar != null)
+        {
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    mprogressBar.setVisibility(View.GONE);
+                }
+            });
+
+        }
+    }
+
+    @Override
+    public void showErrorConnectionLayout() {
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    errorConnectionLayout.setVisibility(View.VISIBLE);
+                }
+            });
+
+
+    }
+
+    @Override
+    public void showToast(final int msg) {
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                Toast.makeText(SubCategoryActivity.this, msg, Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
 
     @Override
     public void initPopubVies(View v) {
-        etPopupAddToCart = (EditText) v.findViewById(R.id.et_quantity_add_to_cart);
-        btnAddToCart = (LinearLayout) v.findViewById(R.id.layout_btn_add_to_cart);
+        etPopupAddToCart = v.findViewById(R.id.et_quantity_add_to_cart);
+        btnAddToCart = v.findViewById(R.id.layout_btn_add_to_cart);
 
     }
 
     @Override
-    public void onAddToCartButtonClick(PopupWindow popupWindow, String userId, String itemId, String itemName, Integer quantity, Integer totalPrice) {
+    public void onAddToCartButtonClick(PopupWindow popupWindow, String itemId, String itemName, Integer quantity, Integer totalPrice) {
         // TODO change this to action you want
         String stringQuantity = quantity.toString();
         String stringPrice = totalPrice.toString();
@@ -208,10 +300,64 @@ public class SubCategoryActivity extends BaseActivity implements SubCategoryMvpV
         openAddToCartPopup(v,itemId,itemName, price);
     }
 
-    public static Intent getStartIntent(Context context, String categoryId) {
+    public static Intent getStartIntent(Context context, String categoryId, String catName) {
         Intent intent = new Intent(context, SubCategoryActivity.class);
         intent.putExtra(StaticValues.KEY_CATEGORY_ID,categoryId);
+        intent.putExtra(StaticValues.KEY_CATEGORY_NAME, catName);
         return intent;
+    }
+
+    public void checkTimer()
+    {
+        String date = subCategoryPresenter.getCounterDate();
+        if (date != null)
+        {
+            countDownStart(date);
+        }
+        else btnYourList.setText(getString(R.string.btn_your_list));
+    }
+    public boolean buttonHasCounter()
+    {
+        String date = subCategoryPresenter.getCounterDate();
+        return date != null;
+    }
+
+    public void countDownStart(final String time) {
+        handler = new Handler();
+
+        runnable = new Runnable() {
+            @Override
+            public void run() {
+                handler.postDelayed(this, 1000);
+                try {
+                    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+// Please here set your event date//YYYY-MM-DD
+
+                    Date futureDate = dateFormat.parse(time);
+                    Date currentDate = new Date();
+                    if (!currentDate.after(futureDate)) {
+                        long diff = futureDate.getTime()
+                                - currentDate.getTime();
+                        long days = diff / (24 * 60 * 60 * 1000);
+                        diff -= days * (24 * 60 * 60 * 1000);
+                        long hours = diff / (60 * 60 * 1000);
+                        diff -= hours * (60 * 60 * 1000);
+                        long minutes = diff / (60 * 1000);
+                        diff -= minutes * (60 * 1000);
+                        long seconds = diff / 1000;
+                        String time = String.format("%02d", minutes)+" : " + String.format("%02d", seconds);
+                        btnYourList.setText(time);
+
+                    }
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        };
+        handler.postDelayed(runnable, 1 * 1000);
+
+
     }
 
 }
