@@ -41,8 +41,8 @@ public class DataManager {
         return sharedPrefHelper.getDate();
     }
 
-    public void addItemToOrderList(String itemId, String itemName, String desiredQuantity, String totalPrice) {
-        mSqliteHandler.addItemToOrderList(itemId,itemName,desiredQuantity,totalPrice);
+    public void addItemToOrderList(String itemId, String itemName, String desiredQuantity, String totalPrice, String notes) {
+        mSqliteHandler.addItemToOrderList(itemId,itemName,desiredQuantity,totalPrice,notes);
     }
     public ArrayList<ListOfOneOrderModel> getOrderItemList()
     {

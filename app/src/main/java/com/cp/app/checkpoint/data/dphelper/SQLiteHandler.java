@@ -19,7 +19,7 @@ import java.util.ArrayList;
 public class SQLiteHandler extends SQLiteOpenHelper {
     Context context;
 
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 5;
 
     private static final String DATABASE_NAME = "list_of_order";
 
@@ -37,7 +37,8 @@ public class SQLiteHandler extends SQLiteOpenHelper {
                 ItemContract.ItemEntry.COLUMN_ITEM_ID + " TEXT NOT NULL, "+
                 ItemContract.ItemEntry.COLUMN_ITEM_NAME + " TEXT, "+
                 ItemContract.ItemEntry.COLUMN_QUANTITY + " INTEGER NOT NULL, "+
-                ItemContract.ItemEntry.COLUMN_TOTAL_PRICE + " INTEGER NOT NULL);";
+                ItemContract.ItemEntry.COLUMN_TOTAL_PRICE + " INTEGER NOT NULL,"+
+                ItemContract.ItemEntry.COLUMN_ITEM_NOTES + " TEXT);";
 
         sqLiteDatabase.execSQL(SQL_CREATE_ITEMS_TABLE);
     }
@@ -51,13 +52,13 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         onCreate(sqLiteDatabase);
     }
 
-    public void addItemToOrderList(String itemId, String itemName, String desiredQuantity, String totalPrice) {
+    public void addItemToOrderList(String itemId, String itemName, String desiredQuantity, String totalPrice, String notes) {
         ContentValues values = new ContentValues();
         values.put(ItemContract.ItemEntry.COLUMN_ITEM_ID,itemId);
         values.put(ItemContract.ItemEntry.COLUMN_ITEM_NAME,itemName);
         values.put(ItemContract.ItemEntry.COLUMN_QUANTITY,desiredQuantity);
         values.put(ItemContract.ItemEntry.COLUMN_TOTAL_PRICE,totalPrice);
-
+        values.put(ItemContract.ItemEntry.COLUMN_ITEM_NOTES, notes);
         Uri newUri;
         newUri = context.getContentResolver().insert(ItemContract.ItemEntry.CONTENT_URI,values);
 
@@ -83,6 +84,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
                 ItemContract.ItemEntry.COLUMN_ITEM_NAME,
                 ItemContract.ItemEntry.COLUMN_QUANTITY,
                 ItemContract.ItemEntry.COLUMN_TOTAL_PRICE,
+                ItemContract.ItemEntry.COLUMN_ITEM_NOTES,
         };
 
         Cursor cursor = context.getContentResolver().query(ItemContract.ItemEntry.CONTENT_URI, projection,null,null,null);
@@ -94,7 +96,12 @@ public class SQLiteHandler extends SQLiteOpenHelper {
                 String itemName = cursor.getString(cursor.getColumnIndex(ItemContract.ItemEntry.COLUMN_ITEM_NAME));
                 Integer quantity = cursor .getInt(cursor.getColumnIndex(ItemContract.ItemEntry.COLUMN_QUANTITY));
                 Integer totalPrice = cursor.getInt(cursor.getColumnIndex(ItemContract.ItemEntry.COLUMN_TOTAL_PRICE));
-                orderList.add(new ListOfOneOrderModel(dbId,itemId,itemName,quantity,totalPrice));
+                String notes = cursor.getString(cursor.getColumnIndex(ItemContract.ItemEntry.COLUMN_ITEM_NOTES));
+                ListOfOneOrderModel listOfOneOrderModel = new ListOfOneOrderModel(dbId,itemId,itemName,quantity,totalPrice);
+                listOfOneOrderModel.setNotes(notes);
+                orderList.add(listOfOneOrderModel);
+
+
                 // do what ever you want here
             }while(cursor.moveToNext());
         }

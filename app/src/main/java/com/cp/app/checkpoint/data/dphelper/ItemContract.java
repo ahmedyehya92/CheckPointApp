@@ -23,6 +23,7 @@ public class ItemContract {
         public final static String COLUMN_ITEM_NAME = "name";
         public final static String COLUMN_QUANTITY = "quantity";
         public final static String COLUMN_TOTAL_PRICE = "price";
+        public final static String COLUMN_ITEM_NOTES = "notes";
 
         public static final Uri CONTENT_URI = Uri.withAppendedPath(BASE_CONTENT_URI,PATH_ITEMS);
 

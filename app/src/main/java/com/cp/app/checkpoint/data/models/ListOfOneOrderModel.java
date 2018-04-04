@@ -10,6 +10,10 @@ public class ListOfOneOrderModel {
     private String dbId;
     private Integer desiredQuantity;
     private Integer priceForDesiredQuantity;
+    private String notes;
+
+
+
 
     public ListOfOneOrderModel(String dbId, String itemId, String itemnName, Integer desiredqQuantity, Integer priceForDesiredQuantity) {
         this.itemId = itemId;
@@ -17,6 +21,10 @@ public class ListOfOneOrderModel {
         this.desiredQuantity = desiredqQuantity;
         this.priceForDesiredQuantity = priceForDesiredQuantity;
         this.dbId = dbId;
+    }
+
+    public void setNotes(String notes) {
+        this.notes = notes;
     }
 
     public String getDbId() {
@@ -37,5 +45,9 @@ public class ListOfOneOrderModel {
 
     public String getDesiredqQuantity() {
         return desiredQuantity.toString();
+    }
+
+    public String getNotes() {
+        return notes;
     }
 }

@@ -47,7 +47,7 @@ public class SubCategoryActivity extends BaseActivity implements SubCategoryMvpV
     private SubCategoriesExpandableListAdapter expandableListAdapter;
     private ExpandableListView expandableListView;
 
-    private EditText etPopupAddToCart;
+    private EditText etPopupAddToCart, etNotes;
     private LinearLayout btnAddToCart;
     private Button btnYourList;
     private TextView tvListItemCounter, tvTitle;
@@ -156,6 +156,7 @@ public class SubCategoryActivity extends BaseActivity implements SubCategoryMvpV
         btnYourList = findViewById(R.id.btn_your_list);
         tvListItemCounter = findViewById(R.id.tv_listItem_counter);
 
+
         tvTitle = findViewById(R.id.logo_menu);
 
 
@@ -201,13 +202,17 @@ public class SubCategoryActivity extends BaseActivity implements SubCategoryMvpV
             @Override
             public void onClick(View view) {
                 String etContent = etPopupAddToCart.getText().toString();
+
+                String notes = etNotes.getText().toString();
+                if (notes.isEmpty())
+                    notes = getString(R.string.no_notes);
                 Integer quantity = Integer.parseInt(etContent);
 
                 if (!(quantity>10) )
                 {
                     Integer totalPrice = quantity * priceOfOnePiece;
 
-                    onAddToCartButtonClick(popWindow, itemId, itemName, quantity,totalPrice);
+                    onAddToCartButtonClick(popWindow, itemId, itemName, quantity,totalPrice,notes);
                 }
                 else
                     Toast.makeText(SubCategoryActivity.this, R.string.toast_exceeded_maximum_allowed_quantity, Toast.LENGTH_SHORT).show();
@@ -281,15 +286,16 @@ public class SubCategoryActivity extends BaseActivity implements SubCategoryMvpV
     public void initPopubVies(View v) {
         etPopupAddToCart = v.findViewById(R.id.et_quantity_add_to_cart);
         btnAddToCart = v.findViewById(R.id.layout_btn_add_to_cart);
+        etNotes = v.findViewById(R.id.et_notes);
 
     }
 
     @Override
-    public void onAddToCartButtonClick(PopupWindow popupWindow, String itemId, String itemName, Integer quantity, Integer totalPrice) {
+    public void onAddToCartButtonClick(PopupWindow popupWindow, String itemId, String itemName, Integer quantity, Integer totalPrice, String notes) {
         // TODO change this to action you want
         String stringQuantity = quantity.toString();
         String stringPrice = totalPrice.toString();
-        subCategoryPresenter.addItemToOrderList(itemId,itemName,stringQuantity,stringPrice);
+        subCategoryPresenter.addItemToOrderList(itemId,itemName,stringQuantity,stringPrice,notes);
         popupWindow.dismiss();
         tvListItemCounter.setText(subCategoryPresenter.getNumberOfListItemsOrder().toString());
 

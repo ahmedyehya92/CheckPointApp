@@ -1,6 +1,7 @@
 package com.cp.app.checkpoint.ui.listtoorder;
 
 import android.net.Uri;
+import android.util.Log;
 
 import com.cp.app.checkpoint.R;
 import com.cp.app.checkpoint.data.DataManager;
@@ -77,6 +78,7 @@ public class ListToOrderPresenter<V extends ListToOrderMvpView> extends BasePres
                 @Override
                 public void onResponse(Call call, Response response) throws IOException {
                     String stringResponse = response.body().string();
+                    Log.d("any", "onResponse: "+ stringResponse);
 
                     try {
                         JSONObject jsonResponse = new JSONObject(stringResponse);
@@ -107,6 +109,7 @@ public class ListToOrderPresenter<V extends ListToOrderMvpView> extends BasePres
 
         Integer intTotalPrice = new Integer(0);
         ArrayList<ListOfOneOrderModel> listOfOrder = getOrderList();
+        //Log.d("ListToOrder", "getJsonString: " + listOfOrder.get(0).getNotes());
         for (int i =0; i<listOfOrder.size(); i++)
         {
             int desiredQuantity = Integer.parseInt(listOfOrder.get(i).getDesiredqQuantity());

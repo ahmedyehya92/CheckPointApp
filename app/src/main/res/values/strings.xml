@@ -92,4 +92,6 @@
     <string name="notifi_content">You order is ready</string>
     <string name="added_points">Added Points</string>
     <string name="new_score">New Score</string>
+    <string name="notes">notes</string>
+    <string name="no_notes">no notes</string>
 </resources>

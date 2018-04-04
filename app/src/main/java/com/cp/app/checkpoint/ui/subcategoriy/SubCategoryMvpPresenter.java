@@ -7,7 +7,7 @@ import com.cp.app.checkpoint.ui.base.MvpPresenter;
  */
 
 public interface SubCategoryMvpPresenter<V extends SubCategoryMvpView> extends MvpPresenter<V> {
-    void addItemToOrderList(String itemId, String itemName, String desiredQuantity, String totalPrice);
+    void addItemToOrderList(String itemId, String itemName, String desiredQuantity, String totalPrice, String notes);
     Integer getNumberOfListItemsOrder();
     String getCounterDate();
     void reqSubCategories(String id);
