@@ -121,6 +121,7 @@ public class ListToOrderPresenter<V extends ListToOrderMvpView> extends BasePres
                         .put("quantity",listOfOrder.get(i).getDesiredqQuantity())
                         .put("price",listOfOrder.get(i).getPriceForDesiredQuantity())
                         .put("unit_price", unitPrice)
+                        .put("note", listOfOrder.get(i).getNotes())
                 );
             } catch (JSONException e) {
                 e.printStackTrace();
